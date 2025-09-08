@@ -19,7 +19,6 @@ Elims Agrosphere is a project focused on agricultural technology solutions, aimi
    ```
    cd elimsagrosphere
    ```
-
 3. Install dependencies:
    ```
    npm install
