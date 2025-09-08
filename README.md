@@ -14,13 +14,17 @@ Elims Agrosphere is a project focused on agricultural technology solutions, aimi
 1. Clone the repository:
    ```
    git clone https://github.com/Mykel-Eze/elimsagrosphere.git
+   ```
+2. Enter the project directory:
+   ```
    cd elimsagrosphere
    ```
-2. Install dependencies:
+
+3. Install dependencies:
    ```
    npm install
    ```
-3. Start the application:
+4. Start the application:
    ```
    npm run dev
    ```
