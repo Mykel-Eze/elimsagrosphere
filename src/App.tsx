@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
 import { useState, useEffect } from "react";
 import { CheckCircle, Users, Truck, BarChart3, Shield, Zap, Leaf, TrendingUp, MessageSquare, Cloud } from "lucide-react";
 import { Button } from "./components/ui/button";
@@ -11,9 +10,7 @@ import { SignInForm } from "./components/auth/SignInForm";
 import { Dashboard } from "./components/dashboard/Dashboard";
 import { Toaster } from "sonner";
 import { getSupabaseClient } from "./utils/supabase/client";
-// import elimsLogo from "./assets/elims-agro-sphere.png";
-
-const elimsLogo = require("./assets/elims-agro-sphere.png");
+import elimsLogo from "./assets/elims-agro-sphere.png";
 
 const supabase = getSupabaseClient();
 
