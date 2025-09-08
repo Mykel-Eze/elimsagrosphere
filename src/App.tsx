@@ -1,11 +1,10 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState, useEffect } from "react";
 import { CheckCircle, Users, Truck, BarChart3, Shield, Zap, Leaf, TrendingUp, MessageSquare, Cloud } from "lucide-react";
 import { Button } from "./components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./components/ui/card";
-import { Badge } from "./components/ui/badge";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "./components/ui/dialog";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "./components/ui/tabs";
+import { Card, CardContent, CardHeader, CardTitle } from "./components/ui/card";
+// import { Badge } from "./components/ui/badge";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "./components/ui/dialog";
+// import { Tabs, TabsContent, TabsList, TabsTrigger } from "./components/ui/tabs";
 import { SignUpForm } from "./components/auth/SignUpForm";
 import { SignInForm } from "./components/auth/SignInForm";
 import { Dashboard } from "./components/dashboard/Dashboard";
