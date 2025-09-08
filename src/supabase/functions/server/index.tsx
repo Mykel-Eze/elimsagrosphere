@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Hono } from 'hono'
 import { cors } from 'hono/cors'
 import { logger } from 'hono/logger'
@@ -99,7 +98,7 @@ app.post('/make-server-b712d4ef/signup', async (c) => {
 app.get('/make-server-b712d4ef/profile', async (c) => {
   try {
     const accessToken = c.req.header('Authorization')?.split(' ')[1]
-    const { data: { user }, error } = await supabase.auth.getUser(accessToken)
+    const { data: { user } } = await supabase.auth.getUser(accessToken)
     
     if (!user?.id) {
       return c.json({ error: 'Unauthorized' }, 401)
@@ -131,7 +130,7 @@ app.get('/make-server-b712d4ef/profile', async (c) => {
 app.post('/make-server-b712d4ef/products', async (c) => {
   try {
     const accessToken = c.req.header('Authorization')?.split(' ')[1]
-    const { data: { user }, error } = await supabase.auth.getUser(accessToken)
+    const { data: { user } } = await supabase.auth.getUser(accessToken)
     
     if (!user?.id) {
       return c.json({ error: 'Unauthorized' }, 401)
@@ -243,7 +242,7 @@ app.get('/make-server-b712d4ef/products', async (c) => {
 app.post('/make-server-b712d4ef/orders', async (c) => {
   try {
     const accessToken = c.req.header('Authorization')?.split(' ')[1]
-    const { data: { user }, error } = await supabase.auth.getUser(accessToken)
+    const { data: { user } } = await supabase.auth.getUser(accessToken)
     
     if (!user?.id) {
       return c.json({ error: 'Unauthorized' }, 401)
@@ -305,7 +304,7 @@ app.post('/make-server-b712d4ef/orders', async (c) => {
 app.get('/make-server-b712d4ef/orders', async (c) => {
   try {
     const accessToken = c.req.header('Authorization')?.split(' ')[1]
-    const { data: { user }, error } = await supabase.auth.getUser(accessToken)
+    const { data: { user } } = await supabase.auth.getUser(accessToken)
     
     if (!user?.id) {
       return c.json({ error: 'Unauthorized' }, 401)
@@ -342,7 +341,7 @@ app.get('/make-server-b712d4ef/orders', async (c) => {
 app.put('/make-server-b712d4ef/orders/:id/status', async (c) => {
   try {
     const accessToken = c.req.header('Authorization')?.split(' ')[1]
-    const { data: { user }, error } = await supabase.auth.getUser(accessToken)
+    const { data: { user } } = await supabase.auth.getUser(accessToken)
     
     if (!user?.id) {
       return c.json({ error: 'Unauthorized' }, 401)
@@ -383,7 +382,7 @@ app.put('/make-server-b712d4ef/orders/:id/status', async (c) => {
 app.post('/make-server-b712d4ef/community/posts', async (c) => {
   try {
     const accessToken = c.req.header('Authorization')?.split(' ')[1]
-    const { data: { user }, error } = await supabase.auth.getUser(accessToken)
+    const { data: { user } } = await supabase.auth.getUser(accessToken)
     
     if (!user?.id) {
       return c.json({ error: 'Unauthorized' }, 401)

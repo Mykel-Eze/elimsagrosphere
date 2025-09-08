@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
@@ -93,6 +92,7 @@ export function Dashboard({ accessToken, onSignOut }: DashboardProps) {
 
   const handleProductInquiry = (productId: string) => {
     toast.info("Contact feature coming soon! Please use the farmer's contact information.");
+    console.log("Inquire about product ID:", productId);
   };
 
   const formatPrice = (price: number) => {
