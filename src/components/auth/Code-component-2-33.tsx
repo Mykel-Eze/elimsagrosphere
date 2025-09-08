@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState } from "react";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
-import { toast } from "sonner@2.0.3";
+import { toast } from "sonner";
 import { createClient } from "@supabase/supabase-js";
 import { projectId, publicAnonKey } from "../../utils/supabase/info";
 
@@ -108,7 +109,7 @@ export function SignUpForm({ onSuccess }: SignUpFormProps) {
 
           <div>
             <Label htmlFor="role">I am a...</Label>
-            <Select onValueChange={(value) => handleChange('role', value)} required>
+            <Select onValueChange={(value: string) => handleChange('role', value)} required>
               <SelectTrigger>
                 <SelectValue placeholder="Select your role" />
               </SelectTrigger>

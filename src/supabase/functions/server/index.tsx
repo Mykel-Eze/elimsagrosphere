@@ -1,8 +1,15 @@
-import { Hono } from 'npm:hono'
-import { cors } from 'npm:hono/cors'
-import { logger } from 'npm:hono/logger'
-import { createClient } from 'jsr:@supabase/supabase-js@2'
-import * as kv from './kv_store.tsx'
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { Hono } from 'hono'
+import { cors } from 'hono/cors'
+import { logger } from 'hono/logger'
+import { serve } from '@hono/node-server'
+import { createClient } from '@supabase/supabase-js'
+import { randomUUID } from 'crypto'
+import dotenv from 'dotenv'
+import * as kv from './kv_store'
+
+// Load environment variables
+dotenv.config()
 
 const app = new Hono()
 
@@ -13,10 +20,14 @@ app.use('*', cors({
   allowMethods: ['*'],
 }))
 
+if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+  throw new Error('Missing Supabase environment variables');
+}
 const supabase = createClient(
-  Deno.env.get('SUPABASE_URL')!,
-  Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!,
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_SERVICE_ROLE_KEY,
 )
+
 
 // User Registration
 app.post('/make-server-b712d4ef/signup', async (c) => {
@@ -148,7 +159,7 @@ app.post('/make-server-b712d4ef/products', async (c) => {
       return c.json({ error: 'Missing required product fields' }, 400)
     }
 
-    const productId = crypto.randomUUID()
+    const productId = randomUUID()
     const product = {
       id: productId,
       farmer_id: user.id,
@@ -254,7 +265,7 @@ app.post('/make-server-b712d4ef/orders', async (c) => {
       return c.json({ error: 'Insufficient quantity available' }, 400)
     }
 
-    const orderId = crypto.randomUUID()
+    const orderId = randomUUID()
     const order = {
       id: orderId,
       product_id,
@@ -385,7 +396,7 @@ app.post('/make-server-b712d4ef/community/posts', async (c) => {
       return c.json({ error: 'Title and content are required' }, 400)
     }
 
-    const postId = crypto.randomUUID()
+    const postId = randomUUID()
     const post = {
       id: postId,
       author_id: user.id,
@@ -518,4 +529,11 @@ app.get('/make-server-b712d4ef/search', async (c) => {
   }
 })
 
-Deno.serve(app.fetch)
+// Start the server
+const port = Number(process.env.PORT) || 3000
+serve({
+  fetch: app.fetch,
+  port,
+})
+
+console.log(`Server is running on port ${port}`)

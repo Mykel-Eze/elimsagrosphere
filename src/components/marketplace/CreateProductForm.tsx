@@ -6,7 +6,7 @@ import { Textarea } from "../ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Switch } from "../ui/switch";
-import { toast } from "sonner@2.0.3";
+import { toast } from "sonner";
 import { projectId } from "../../utils/supabase/info";
 
 interface CreateProductFormProps {
@@ -82,7 +82,7 @@ export function CreateProductForm({ accessToken, onSuccess }: CreateProductFormP
     }
   };
 
-  const handleChange = (field: string, value: any) => {
+  const handleChange = (field: string, value: unknown) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
@@ -108,7 +108,7 @@ export function CreateProductForm({ accessToken, onSuccess }: CreateProductFormP
 
             <div>
               <Label htmlFor="category">Category</Label>
-              <Select onValueChange={(value) => handleChange('category', value)} required>
+              <Select onValueChange={(value: unknown) => handleChange('category', value)} required>
                 <SelectTrigger>
                   <SelectValue placeholder="Select category" />
                 </SelectTrigger>
@@ -151,7 +151,7 @@ export function CreateProductForm({ accessToken, onSuccess }: CreateProductFormP
 
             <div>
               <Label htmlFor="unit">Unit</Label>
-              <Select value={formData.unit} onValueChange={(value) => handleChange('unit', value)}>
+              <Select value={formData.unit} onValueChange={(value: unknown) => handleChange('unit', value)}>
                 <SelectTrigger>
                   <SelectValue />
                 </SelectTrigger>
@@ -206,7 +206,7 @@ export function CreateProductForm({ accessToken, onSuccess }: CreateProductFormP
             <Switch
               id="organic"
               checked={formData.organic}
-              onCheckedChange={(checked) => handleChange('organic', checked)}
+              onCheckedChange={(checked: unknown) => handleChange('organic', checked)}
             />
             <Label htmlFor="organic">This is an organic product</Label>
           </div>

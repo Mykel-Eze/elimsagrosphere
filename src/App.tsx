@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState, useEffect } from "react";
 import { CheckCircle, Users, Truck, BarChart3, Shield, Zap, Leaf, TrendingUp, MessageSquare, Cloud } from "lucide-react";
 import { Button } from "./components/ui/button";
@@ -8,7 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "./components/ui/tabs";
 import { SignUpForm } from "./components/auth/SignUpForm";
 import { SignInForm } from "./components/auth/SignInForm";
 import { Dashboard } from "./components/dashboard/Dashboard";
-import { Toaster } from "sonner@2.0.3";
+import { Toaster } from "sonner";
 import { getSupabaseClient } from "./utils/supabase/client";
 import elimsLogo from "./assets/elims-agro-sphere.png";
 
